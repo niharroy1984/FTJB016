@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo Map</title>
+    <style>
+        #mapdiv {
+            margin: 0;
+            padding: 0;
+            height: 500px;
+        }
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+
+        (function getMap() {
+            if (!!navigator.geolocation) {
+                var optn = {
+                    enableHighAccuracy: true,
+                    timeout: Infinity,
+                    maximumAge: 0
+                };
+                navigator.geolocation.watchPosition(showPosition, showError, optn);
+            } else {
+                alert('Geolocation is not supported in your browser');
+            }
+        })();
+   
+   
+        function showPosition(position) {
+            var googlePos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            var mapOptions = {
+                zoom: 12,
+                center: googlePos
+            };
+            var mapObj = document.getElementById('mapdiv');
+            var googleMap = new google.maps.Map(mapObj, mapOptions);
+            var markerOpt = {
+                map: googleMap,
+                position: googlePos,
+                title: 'Hi , I am here'
+            };
+            new google.maps.Marker(markerOpt);
+           
+        }
+
+     
+
+        function showError(error) {
+            var err = document.getElementById('mapdiv');
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    err.innerHTML = "User denied the request for Geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    err.innerHTML = "Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    err.innerHTML = "The request to get user location timed out."
+                    break;
+                case error.UNKNOWN_ERROR:
+                    err.innerHTML = "An unknown error occurred."
+                    break;
+                default: 
+                    err.innerHTML = "An unknown error occurred."
+                    break;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <p id='mapdiv'></p>
+    
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <video id="player" controls="controls" poster="./../images/tomNjerry2.png" controls="controls" width="500" height="300">
+        <source src="./../video/tomNjerry.webm" type="video/webm">
+    </video>
+
+    <button id="playBtn">Play</button>
+
+    <script>
+        var playBtn = document.getElementById('playBtn');
+        playBtn.addEventListener('click', function(){
+            document.getElementById('player').play();
+        })
+    </script>
+</body>
+
+</html>

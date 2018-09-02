@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <img id="poster" src="./../images/BMB-Zinda.jpg" alt="" width="100">
+    <audio id="player" controls="controls">
+        <source src="./../audio/BMB-Zinda.mp3" type="audio/mp3"> Audio tag is not available in this browser.
+    </audio>
+
+    <br>
+    <div style="border: solid;;border-color: blue;width: 200px;">
+        <img src="../images/BMB-Zinda.jpg" width="50" height="50">
+        <a href="#" onclick="changeSong(event)">BMB-Zinda</a>
+        <br>
+        <img src="../images/SunnRahaHai.jpg" width="50" height="50">
+        <a href="#" onclick="changeSong(event)">SunnRahaHai</a>
+        <br>
+        <img src="../images/TumHiHo.jpg" width="50" height="50">
+        <a href="#" onclick="changeSong(event)">TumHiHo</a>
+        <br>
+
+        <script>
+
+            var audioPlayer = document.getElementById('player');
+
+            function changeSong(event) {
+                console.log(event);
+                var currentValue = event.target.innerHTML;
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
+                audioPlayer.src = "./../audio/" + currentValue + ".mp3";
+                document.getElementById('poster').src = "./../images/" + currentValue + ".jpg";
+
+                audioPlayer.play();
+
+            }
+        </script>
+</body>
+
+</html>

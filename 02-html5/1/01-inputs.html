@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    0   <input id="rangeEle" type="range" min="0" max="100" value="50" onchange="getRange()"/>    100
+<br/>
+Range Value: <span id="output">50</span>
+
+<hr/>
+
+<input type="color">
+
+    <script>
+        function getRange(){
+            var ele = document.getElementById('rangeEle');
+            console.log(ele.value);
+            document.getElementById('output').innerHTML = ele.value;
+        }
+    </script>
+</body>
+</html>

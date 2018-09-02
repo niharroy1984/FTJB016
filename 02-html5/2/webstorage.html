@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebStorage</title>
+</head>
+
+<body>
+    <input id="box" />
+
+    <br/>
+    <button onclick="save()">Store</button> |
+    <button onclick="get()">Get</button>
+
+    <script>
+        // localStorage
+        // sessionStorage
+
+        function save() {
+            var inputText = document.getElementById('box').value;
+            // localStorage.setItem('abcdefg', inputText);
+            sessionStorage.setItem('abcdefg', inputText);
+        }
+        function get() {
+            var key = document.getElementById('box').value;
+            // localStorage.setItem('abcdefg', inputText);
+            console.log(sessionStorage.getItem(key));
+        }
+    </script>
+</body>
+
+</html>
